@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <style>
+        @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+        body {
+            font-family: 'cwTeXYen', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('./ntut.jpg');
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .outer {
+            display: table;
+            position: absolute;
+            height: 100%;
+            width: 100%;            
+        }
+        .container{
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        .btn {
+            width: 80px;
+            height: 80px;
+            /* border: 1px solid salmon; */
+            border-radius: 5px;
+            display: inline-block;
+            margin: 1em;
+            background: rgba(255,255,255,.9);
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="container">
+            <div data-type="A" class="btn">
+                <p>捷運進站</p>
+                <span>A</span>
+            </div>
+            <div data-type="S" class="btn">
+                <p>東區逛街</p>
+                <span>S</span>
+            </div>
+            <div data-type="D" class="btn">
+                <p>市民高架</p>
+                <span>D</span>
+            </div>
+            <div data-type="F" class="btn">
+                <p>上課</p>
+                <span>F</span>
+            </div>
+            <div data-type="G" class="btn">
+                <p>圖書館</p>
+                <span>G</span>
+            </div>
+            <div data-type="H" class="btn">
+                <p>光華</p>
+                <span>H</span>
+            </div>
+            <div data-type="J" class="btn">
+                <p>六教</p>
+                <span>J</span>
+            </div>
+            <div data-type="K" class="btn">
+                <p>阿水廣場</p>
+                <span>K</span>
+            </div>
+            <div data-type="L" class="btn">
+                <p>三教</p>
+                <span>L</span>
+            </div>
+        </div>
+    </div>
+    <audio src="" data-key="A"></audio>
+    <audio src="" data-key="S"></audio>
+    <audio src="" data-key="D"></audio>
+    <audio src="" data-key="F"></audio>
+    <audio src="" data-key="G"></audio>
+    <audio src="" data-key="H"></audio>
+    <audio src="" data-key="J"></audio>
+    <audio src="" data-key="K"></audio>
+    <audio src="" data-key="L"></audio>
+</body>
+</html>
