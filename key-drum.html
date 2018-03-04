@@ -6,15 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
+        // window.addEventListener('keypress', e => {
+        //     btn = document.querySelector(`.btn[data-key="${e.key.toUpperCase()}"]`);
+        //     if(!btn) return;
+        //     btn.classList.add('play');
+        // });
+        // function removeTransition(e) {
+        //     console.log(e);
+        // }
+
+        // const btns = document.querySelectorAll('.btn');
+        // btns.forEach(b => {b.addEventListener('transitioned', removeTransition)});
+        // btns.forEach(b => {b.addEventListener('webkitTransitionEnd',removeEventListener)});
+        // const btns = document.querySelectorAll('.btn');
+        // btns.forEach(btn => btn.addEventListener('transitioned', e => {console.log(e);}));
+        
         document.addEventListener('DOMContentLoaded', () => {
             window.addEventListener('keydown', (e)=>{
                 let key = e.key.toUpperCase();
                 btn = document.querySelector(`.btn[data-key="${key}"]`);
-                if(btn) {
-                    btn.className += ' play';
-                }
+                if(!btn) return; //end whole thing earlier.
+                btn.classList.add('play');
+
             });
-        }, false);
+            function removeTransition(e) {
+                if(e.type !== 'transitionend' && e.type !== 'webkitTransitionEnd') return;
+                console.log(this.btn.classList);
+                this.btn.classList.remove('play');
+            }
+            const btns = document.querySelectorAll('.btn');
+            btns.forEach(b => {b.addEventListener('transitioned', e => console.log(e))});
+            btns.forEach(b => {b.addEventListener('webkitTransitionEnd', e => removeTransition(e))});
+            
+            
+        });
     </script>
     <style>
         @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
@@ -45,20 +70,20 @@
             display: inline-block;
             margin: 1em;
             background: rgba(255,255,255,.9);
-            transition: all 0.07s;
-            
+            transition-duration: .1s;
         }
         .play {
             border: 1px solid salmon;
             box-shadow: 0 0 18px #ccc;
             transform:scale(1.1);
+            
         }
     </style>
 </head>
 <body>
     <div class="outer">
         <div class="container">
-            <div data-key="A" class="btn play">
+            <div data-key="A" class="btn">
                 <p>捷運進站</p>
                 <span>A</span>
             </div>
