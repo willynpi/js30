@@ -5,7 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            window.addEventListener('keydown', (e)=>{
+                let key = e.key.toUpperCase();
+                btn = document.querySelector(`.btn[data-key="${key}"]`);
+                if(btn) {
+                    btn.className += ' play';
+                }
+            });
+        }, false);
+    </script>
     <style>
         @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
         body {
@@ -35,45 +45,52 @@
             display: inline-block;
             margin: 1em;
             background: rgba(255,255,255,.9);
+            transition: all 0.07s;
+            
+        }
+        .play {
+            border: 1px solid salmon;
+            box-shadow: 0 0 18px #ccc;
+            transform:scale(1.1);
         }
     </style>
 </head>
 <body>
     <div class="outer">
         <div class="container">
-            <div data-type="A" class="btn">
+            <div data-key="A" class="btn play">
                 <p>捷運進站</p>
                 <span>A</span>
             </div>
-            <div data-type="S" class="btn">
+            <div data-key="S" class="btn">
                 <p>東區逛街</p>
                 <span>S</span>
             </div>
-            <div data-type="D" class="btn">
+            <div data-key="D" class="btn">
                 <p>市民高架</p>
                 <span>D</span>
             </div>
-            <div data-type="F" class="btn">
+            <div data-key="F" class="btn">
                 <p>上課</p>
                 <span>F</span>
             </div>
-            <div data-type="G" class="btn">
+            <div data-key="G" class="btn">
                 <p>圖書館</p>
                 <span>G</span>
             </div>
-            <div data-type="H" class="btn">
+            <div data-key="H" class="btn">
                 <p>光華</p>
                 <span>H</span>
             </div>
-            <div data-type="J" class="btn">
+            <div data-key="J" class="btn">
                 <p>六教</p>
                 <span>J</span>
             </div>
-            <div data-type="K" class="btn">
+            <div data-key="K" class="btn">
                 <p>阿水廣場</p>
                 <span>K</span>
             </div>
-            <div data-type="L" class="btn">
+            <div data-key="L" class="btn">
                 <p>三教</p>
                 <span>L</span>
             </div>
