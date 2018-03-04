@@ -6,37 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script>
-        // window.addEventListener('keypress', e => {
-        //     btn = document.querySelector(`.btn[data-key="${e.key.toUpperCase()}"]`);
-        //     if(!btn) return;
-        //     btn.classList.add('play');
-        // });
-        // function removeTransition(e) {
-        //     console.log(e);
-        // }
-
-        // const btns = document.querySelectorAll('.btn');
-        // btns.forEach(b => {b.addEventListener('transitioned', removeTransition)});
-        // btns.forEach(b => {b.addEventListener('webkitTransitionEnd',removeEventListener)});
-        // const btns = document.querySelectorAll('.btn');
-        // btns.forEach(btn => btn.addEventListener('transitioned', e => {console.log(e);}));
+        
         
         document.addEventListener('DOMContentLoaded', () => {
             window.addEventListener('keydown', (e)=>{
-                let key = e.key.toUpperCase();
-                btn = document.querySelector(`.btn[data-key="${key}"]`);
+                audio = document.querySelector(`audio[data-key="${e.key.toUpperCase()}"]`);
+                btn = document.querySelector(`.btn[data-key="${e.key.toUpperCase()}"]`);
                 if(!btn) return; //end whole thing earlier.
+                audio.play();
                 btn.classList.add('play');
+                
 
             });
-            function removeTransition(e) {
-                if(e.type !== 'transitionend' && e.type !== 'webkitTransitionEnd') return;
-                console.log(this.btn.classList);
+            function removeTransition(e, type) {
+                if(e.type !== type) return;
                 this.btn.classList.remove('play');
             }
             const btns = document.querySelectorAll('.btn');
-            btns.forEach(b => {b.addEventListener('transitioned', e => console.log(e))});
-            btns.forEach(b => {b.addEventListener('webkitTransitionEnd', e => removeTransition(e))});
+            ['transitioned', 'webkitTransitionEnd'].forEach(type => {
+                btns.forEach(b => {b.addEventListener(type, e => removeTransition(e, type))});
+            })
+            // btns.forEach(b => {b.addEventListener('transitioned', e => removeTransition(e))});
+            // btns.forEach(b => {b.addEventListener('webkitTransitionEnd', e => removeTransition(e))});
             
             
         });
@@ -55,7 +46,11 @@
             display: table;
             position: absolute;
             height: 100%;
-            width: 100%;            
+            width: 100%;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0)), to(rgba(255,255,255,.5)));
+            background-image: -webkit-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,.5));
+            background-image: -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,.5));
+            background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,.5));            
         }
         .container{
             display: table-cell;
@@ -65,70 +60,87 @@
         .btn {
             width: 80px;
             height: 80px;
-            /* border: 1px solid salmon; */
-            border-radius: 5px;
+            border: 2px solid #ddd;
+            border-radius: .8em;
             display: inline-block;
             margin: 1em;
-            background: rgba(255,255,255,.9);
+            background: rgba(255,255,255,.75);
             transition-duration: .1s;
+            text-align: center;
+            padding: .1em;
         }
         .play {
-            border: 1px solid salmon;
-            box-shadow: 0 0 18px #ccc;
+            border: 2px solid #e04834;
+            box-shadow: 0 0 18px #eee;
             transform:scale(1.1);
             
         }
+        .btn kbd{
+            display: block; 
+            position: relative;
+            top: 12px;
+            font-size: 3em;
+            font-weight: bold;
+        }
+        .btn span {
+            display: block; 
+            color: #e04834;
+            position: relative;
+            bottom: -12px;
+            font-size: .2em;
+        }
+        
     </style>
 </head>
 <body>
     <div class="outer">
         <div class="container">
             <div data-key="A" class="btn">
-                <p>捷運進站</p>
-                <span>A</span>
+                <kbd>A</kbd>
+                <span>捷運進站</span>
             </div>
             <div data-key="S" class="btn">
-                <p>東區逛街</p>
-                <span>S</span>
+                <kbd>S</kbd>
+                <span>東區逛街</span>
             </div>
             <div data-key="D" class="btn">
-                <p>市民高架</p>
-                <span>D</span>
+                <kbd>D</kbd>
+                <span>市民高架</span>                
             </div>
             <div data-key="F" class="btn">
-                <p>上課</p>
-                <span>F</span>
+                <kbd>F</kbd>
+                <span>上課</span>
             </div>
             <div data-key="G" class="btn">
-                <p>圖書館</p>
-                <span>G</span>
+                <kbd>G</kbd>
+                <span>圖書館</span>
             </div>
             <div data-key="H" class="btn">
-                <p>光華</p>
-                <span>H</span>
+                <kbd>H</kbd>
+                <span>光華</span>
             </div>
             <div data-key="J" class="btn">
-                <p>六教</p>
-                <span>J</span>
+                <kbd>J</kbd>
+                <span>六教</span>
             </div>
             <div data-key="K" class="btn">
-                <p>阿水廣場</p>
-                <span>K</span>
+                <kbd>K</kbd>
+                <span>阿水廣場</span>
             </div>
             <div data-key="L" class="btn">
-                <p>三教</p>
-                <span>L</span>
+                <kbd>L</kbd>
+                <span>三教</span>
             </div>
         </div>
     </div>
-    <audio src="" data-key="A"></audio>
-    <audio src="" data-key="S"></audio>
-    <audio src="" data-key="D"></audio>
-    <audio src="" data-key="F"></audio>
-    <audio src="" data-key="G"></audio>
-    <audio src="" data-key="H"></audio>
-    <audio src="" data-key="J"></audio>
-    <audio src="" data-key="K"></audio>
-    <audio src="" data-key="L"></audio>
+    <audio src="./music/bark.wav" data-key="A"></audio>
+    <audio src="./music/old-school-drum.wav" data-key="S"></audio>
+    <audio src="./music/piano.wav" data-key="D"></audio>
+    <audio src="./music/guitar.wav" data-key="F"></audio>
+    <audio src="./music/bass.wav" data-key="G"></audio>
+    <audio src="./music/trumpet.mp3" data-key="H"></audio>
+    <audio src="./music/water.wav" data-key="J"></audio>
+    <audio src="./music/knock.wav" data-key="K"></audio>
+    <audio src="./music/scratch.wav" data-key="L"></audio>
 </body>
 </html>
