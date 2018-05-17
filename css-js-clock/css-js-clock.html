@@ -5,12 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CSS-JS-CLOCK</title>
+    <script src="./css-js-clock.js"></script>
     <style>
         .body{
             border: 6px solid #09517a;
             border-radius: 100%;
-            width: 100px;
-            height: 100px;
+            width: 200px;
+            height: 200px;
+        }
+        .hand {
+            /* border: 1px solid #000; */
+            width: 80px;
+            position: relative;
+            top: 95px;
+            left: 14px;
+            border-radius: 5px;
+        }
+        .hour{
+            border: 2px solid #000;
+            transform: rotate(90deg);
+            transform-origin: bottom right;
+        }
+        .minute {
+            border: 2px solid #000;
+            width: 70px;
+            left: 24px;
+            transform: rotate(40deg);
+            transform-origin: bottom right;
+        }
+        .second {
+            left: 16px;
+            top: 93px;
+            border: 1px solid rgb(240, 61, 61);
         }
     </style>
 </head>
@@ -18,7 +44,9 @@
     <h1>CSS+JS CLOCK</h1>
     <div>
         <div class="body">
-
+            <div class="hand hour"></div>
+            <div class="hand minute"></div>
+            <div class="hand second"></div>
         </div>
     </div>
 </body>
