@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const rightTimer = () => {
         let date = new Date();
-        let secondHand = document.querySelector('.second');
-        let hourHand = document.querySelector('.hour');
-        let minuteHand = document.querySelector('.minute');
+        let secondHand = document.querySelector('.right .second');
+        let hourHand = document.querySelector('.right .hour');
+        let minuteHand = document.querySelector('.right .minute');
         let minute = date.getMinutes();
         let hour = date.getHours();
         let second = date.getSeconds();
@@ -12,4 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
         hourHand.style.transform =  `rotate(${hour*30+90+minute/2}deg)`;
     }
     setInterval(rightTimer, 1000);
+
+    const leftTimer = () => {
+
+    }
 });
