@@ -47,7 +47,7 @@
             left: 10%;
             top: 44%;
         }
-        .clock {
+        .block {
             display: inline-block;
             padding: 20px;
             text-align: center;
@@ -67,14 +67,14 @@
             left: 50%;
             top: 50%;
         }
-        .left-clock {
-            width: 30rem;
-            height: 30rem;
-            border: 20px solid #09517a;
-            border-radius: 50%;
+        .right-clock {
             margin: 50px auto;
             position: relative;
-            padding: 2rem;
+            padding: 1rem;
+            border: 6px solid #09517a;
+            border-radius: 100%;
+            width: 200px;
+            height: 200px;
         }
         .clock-face{
             position: relative;
@@ -82,37 +82,48 @@
             height: 100%;
             transform: translateY(-3px);
         }
-        .left-hand{
+        .right-hand{
             width: 50%;
             height: 6px;
             background: black;
             position: absolute;
             top: 50%;
+            border-radius: 40%;
             transform-origin: 100%;
             transition: all .05s;
             transition-timing-function: cubic-bezier(0.21, 2.33, 0.95, 1.19);
+        }
+        .hour-hand {
+            width: 40%;
+            left: 10%;
+        }
+        .second-hand {
+            background: rgb(240, 61, 61);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>CSS+JS CLOCK</h1>
-        <div class="right clock">
+        <div class="block">
             <h2>Left Clock</h2>
-            <div class="body">
-                <div class="center"></div>
-                <div class="hand hour"></div>
-                <div class="hand minute"></div>
-                <div class="hand second"></div>
+            <div class="left-clock">
+                <div class="body">
+                    <div class="center"></div>
+                    <div class="hand hour"></div>
+                    <div class="hand minute"></div>
+                    <div class="hand second"></div>
+                </div>
             </div>
         </div>
-        <h2>Right Clock</h2>
-        <div class="left-clock">
-            
-            <div class="clock-face">
-                <div class="left-hand hour-hand"></div>
-                <div class="left-hand minute-hand"></div>
-                <div class="left-hand second-hand"></div>
+        <div class="block">
+            <h2>Right Clock</h2>
+            <div class="right-clock">
+                <div class="clock-face">
+                    <div class="right-hand hour-hand"></div>
+                    <div class="right-hand minute-hand"></div>
+                    <div class="right-hand second-hand"></div>
+                </div>
             </div>
         </div>
     </div>
