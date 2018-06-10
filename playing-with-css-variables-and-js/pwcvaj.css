@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Jua');
 body {
     background-color: rgba(4, 13, 54, 0.887);
 }
@@ -7,6 +8,10 @@ body {
     padding: 0;
     text-align: center;
 }
+h1 {
+    font-family: 'Jua', sans-serif;
+    color: white;
+}
 .control-panel {
     width: 100%;
     display: flex;
@@ -15,7 +20,8 @@ body {
     margin: 20px 0;
 }
 .control-item label{
-    font-size: 2em;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 1.5em;
     color: white;
 }
 
@@ -56,4 +62,11 @@ body {
 .content img{
     width: 100%;
 
+}
+
+@media screen and (max-width: 500px) {
+    .control-panel {
+        flex-direction: column;
+    }
+    
 }
