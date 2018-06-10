@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Jua');
 
 :root {
-    --padding: 0px;
+    --spacing: 0px;
     --blur: 0px;
-    --color-picker:#ff9900;
+    --base:#ff9900;
 }
 
 body {
@@ -64,8 +64,8 @@ h1 {
     cursor: pointer;
 }
 .content {
-    background-color: var(--color-picker);
-    padding: var(--padding);
+    background-color: var(--base);
+    padding: var(--spacing);
 }
 .content img{
     width: 100%;
