@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Jua');
+
+:root {
+    --padding: 0px;
+    --blur: 0px;
+    --color-picker:#ff9900;
+}
+
 body {
     background-color: rgba(4, 13, 54, 0.887);
 }
@@ -57,11 +64,12 @@ h1 {
     cursor: pointer;
 }
 .content {
-    background-color: #ff9900;
+    background-color: var(--color-picker);
+    padding: var(--padding);
 }
 .content img{
     width: 100%;
-
+    filter:blur(var(--blur));
 }
 
 @media screen and (max-width: 500px) {
