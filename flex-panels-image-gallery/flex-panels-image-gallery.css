@@ -1,6 +1,6 @@
-/* @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css); */
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 body {
-    /* font-family: 'Noto Sans TC', sans-serif;  */
+    font-family: 'Noto Sans TC', sans-serif; 
     margin: 0 auto;
     padding: 0;
 }
@@ -31,20 +31,53 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    font-size: 1em;
+    font-size: 1.5em;
     color: white;
     font-weight: bold;
-    text-align: center;
     text-shadow: 0 0 5px #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 .panel:hover {
     flex: 4;
-    transition-duration: .2s;
-    -moz-transition-duration: .2s;
-    -o-transition-duration: .2s;
-    -webkit-transition-duration: .2s;
+    /* justify-content: center; */
+    transition-duration: .4s;
+    -moz-transition-duration: .4s;
+    -o-transition-duration: .4s;
+    -webkit-transition-duration: .4s;
+}
+.panel > p {
+    /* border: 1px solid red; */
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex: 1 0 auto;
+    /* text-align: center; */
+    justify-content: center;
+    align-items: center;
+}
+.panel > p:first-child { 
+    transform: translateY(-100%);
+}
+.panel > p:last-child {
+    transform: translateY(100%);
+}
+.panel:hover p:first-child {
+    transform: translateY(0);
+    transition-duration: .3s;
+}
+.panel:hover p:last-child {
+    transform: translateY(0);
+    transition-duration: .3s;
+}
+.panel:hover p:nth-of-type(2) {
+    font-size: 4em;
+    transition-duration: .3s;
+    
 }
 .panel p:nth-of-type(2) {
-    font-size: 3em;
+    font-size: 2.5em;
 }
 
