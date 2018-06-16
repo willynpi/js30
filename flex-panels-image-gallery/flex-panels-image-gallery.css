@@ -59,6 +59,9 @@ body {
     align-items: center;
 }
 .panel > p:first-child { 
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
     transform: translateY(-100%);
 }
 .panel > p:last-child {
@@ -81,3 +84,11 @@ body {
     font-size: 2.5em;
 }
 
+a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
