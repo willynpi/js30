@@ -1,4 +1,7 @@
-@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+/* @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css); */
+:root {
+    --transition-time: .5s;
+}
 body {
     font-family: 'Noto Sans TC', sans-serif; 
     margin: 0 auto;
@@ -40,45 +43,14 @@ body {
     align-items: center;
     flex-direction: column;
 }
-.panel:hover {
-    flex: 4;
-    /* justify-content: center; */
-    transition-duration: .4s;
-    -moz-transition-duration: .4s;
-    -o-transition-duration: .4s;
-    -webkit-transition-duration: .4s;
-}
+
 .panel > p {
-    /* border: 1px solid red; */
     margin: 0;
     width: 100%;
     display: flex;
     flex: 1 0 auto;
-    /* text-align: center; */
     justify-content: center;
     align-items: center;
-}
-.panel > p:first-child { 
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    transform: translateY(-100%);
-}
-.panel > p:last-child {
-    transform: translateY(100%);
-}
-.panel:hover p:first-child {
-    transform: translateY(0);
-    transition-duration: .3s;
-}
-.panel:hover p:last-child {
-    transform: translateY(0);
-    transition-duration: .3s;
-}
-.panel:hover p:nth-of-type(2) {
-    font-size: 4em;
-    transition-duration: .3s;
-    
 }
 .panel p:nth-of-type(2) {
     font-size: 2.5em;
@@ -91,4 +63,50 @@ a {
     cursor: pointer;
     text-decoration: none;
     color: white;
+}
+
+.panel > p:first-child { 
+    transform: translateY(-100%);
+}
+.panel > p:last-child {
+    transform: translateY(100%);
+}
+
+/* my way using only css */
+/*
+.panel:hover {
+    flex: 4;
+    transition-duration: var(--transition-time);
+    -moz-transition-duration: var(--transition-time);
+    -o-transition-duration: var(--transition-time);
+    -webkit-transition-duration: var(--transition-time);
+}
+.panel:hover p:first-child, .panel:hover p:last-child {
+    transform: translateY(0);
+    transition-duration: var(--transition-time);
+    -moz-transition-duration: var(--transition-time);
+    -o-transition-duration: var(--transition-time);
+    -webkit-transition-duration: var(--transition-time);
+}
+.panel:hover p:nth-of-type(2) {
+    font-size: 4em;
+    transition-duration: var(--transition-time);
+    -moz-transition-duration: var(--transition-time);
+    -o-transition-duration: var(--transition-time);
+    -webkit-transition-duration: var(--transition-time);
+    
+}
+*/
+
+
+/* js30 official way */
+.panel.open-active > *:first-child{ transform: translateY(0); }
+.panel.open-active > *:last-child{ transform: translateY(0); }
+.panel.open {
+    flex:5;
+    font-size: 40px;
+    transition-duration: var(--transition-time);
+    -moz-transition-duration: var(--transition-time);
+    -o-transition-duration: var(--transition-time);
+    -webkit-transition-duration: var(--transition-time);    
 }
