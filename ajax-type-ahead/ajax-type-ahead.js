@@ -4,13 +4,16 @@ const search = document.getElementById('search');
 const ul = document.getElementById('list');
 search.focus();
 cities = []
-x.open('GET', endpoint);
-x.responseType = 'json';
-x.onreadystatechange = function(){
-    if (this.readyState == 4 && this.status == 200) 
-        cities = x.response;
-}
-x.send();
+// x.open('GET', endpoint);
+// x.responseType = 'json';
+// x.onreadystatechange = function(){
+//     if (this.readyState == 4 && this.status == 200) 
+//         cities = x.response;
+// }
+// x.send();
+fetch(endpoint)
+    .then(response => response.json())
+    .then(data => cities.push(...data));
 
 const addComma = (number) => { 
     return number.replace(/\B(?=(\d{3})+(?!\d))/g,',');
