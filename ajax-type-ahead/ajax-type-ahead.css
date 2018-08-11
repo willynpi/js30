@@ -63,4 +63,8 @@ li:nth-child(even) span {
   transform: perspective(100px) rotateX(3deg);
 }
 
+.hightlight {
+  background: #ffe800;
+}
+
 /*# sourceMappingURL=ajax-type-ahead.css.map */

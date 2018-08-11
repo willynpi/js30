@@ -5,7 +5,7 @@ const ul = document.getElementById('list');
 search.focus();
 search.addEventListener('input', (e) => {
     ul.innerHTML = '';
-    const keyword = e.target.value;
+    const keyword = e.target.value.toLowerCase();
     if(keyword) {
         x.open('GET', endpoint);
         x.responseType = 'json';
@@ -18,7 +18,15 @@ search.addEventListener('input', (e) => {
                 });
                 result.forEach(el => {
                     const li = document.createElement('li');
-                    li.innerHTML = `<span class="name">${el.city}, ${el.state}</span><span class="population">${el.population}</span>`;
+                    const cityName = el.city.toLowerCase();
+                    const position = cityName.match(keyword).index;
+                    const endKeywordPosition = position + keyword.length;
+                    const cityLength = el.city.length;
+                    const front = cityName.slice(0,position);
+                    const mid = cityName.slice(position, endKeywordPosition);
+                    const last = cityName.slice(endKeywordPosition, cityLength);
+                    const nameWithHighlight = `${front}<span class='hightlight'>${mid}</span>${last}`;
+                    li.innerHTML = `<span class="name">${nameWithHighlight}, ${el.state}</span><span class="population">${el.population}</span>`;
                     ul.appendChild(li);
                 });
             }
