@@ -3,35 +3,42 @@ const x = new XMLHttpRequest();
 const search = document.getElementById('search');
 const ul = document.getElementById('list');
 search.focus();
-search.addEventListener('input', (e) => {
-    ul.innerHTML = '';
-    const keyword = e.target.value.toLowerCase();
-    if(keyword) {
-        x.open('GET', endpoint);
-        x.responseType = 'json';
-        x.onreadystatechange = function(){
-            if (this.readyState == 4 && this.status == 200) {
-                r = x.response;
-                const result = r.filter(el => {
-                    city = el.city.toLowerCase();
-                    return city.includes(keyword);
-                });
-                result.forEach(el => {
-                    const li = document.createElement('li');
-                    const cityName = el.city.toLowerCase();
-                    const position = cityName.match(keyword).index;
-                    const endKeywordPosition = position + keyword.length;
-                    const cityLength = el.city.length;
-                    const front = cityName.slice(0,position);
-                    const mid = cityName.slice(position, endKeywordPosition);
-                    const last = cityName.slice(endKeywordPosition, cityLength);
-                    const nameWithHighlight = `${front}<span class='hightlight'>${mid}</span>${last}`;
-                    li.innerHTML = `<span class="name">${nameWithHighlight}, ${el.state}</span><span class="population">${el.population}</span>`;
-                    ul.appendChild(li);
-                });
-            }
-        }
-        x.send();
-    }
-});
+cities = []
+x.open('GET', endpoint);
+x.responseType = 'json';
+x.onreadystatechange = function(){
+    if (this.readyState == 4 && this.status == 200) 
+        cities = x.response;
+}
+x.send();
 
+const addComma = (number) => { 
+    return number.replace(/\B(?=(\d{3})+(?!\d))/g,',');
+}
+
+const findMatch = (keyWord, cities) => {
+    const regex = new RegExp(keyWord, 'gi');
+    return cities.filter(el => {
+        return el.city.match(regex) || el.state.match(regex);
+    });
+}
+
+const displayMatch = (e) => {
+    const keyWord = e.target.value;
+    const matches = findMatch(keyWord, cities);
+    const regex = new RegExp(keyWord, 'gi');
+    const t = matches.map(el => {
+        const cityName = el.city.replace(regex, `<span class="hightlight">${keyWord}</span>`);
+        const state = el.state.replace(regex, `<span class="hightlight">${keyWord}</span>`);
+        const population = addComma(el.population);
+        return ` 
+            <li>
+                <span class="name">${cityName}, ${state}</span>
+                <span class="population">${population}</span>
+            </li>
+        `;
+    }).join('');
+    ul.innerHTML = t;
+}
+
+search.addEventListener('input', displayMatch);

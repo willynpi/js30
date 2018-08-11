@@ -8,7 +8,7 @@ body {
 .container {
   margin: 0 auto;
   padding: 50px;
-  max-width: 400px;
+  max-width: 600px;
   text-align: center;
 }
 
@@ -37,6 +37,7 @@ li {
   padding: 10px 20px;
   background: #fff;
   width: 85%;
+  max-width: 580px;
   position: relative;
   left: 10px;
   display: flex;
