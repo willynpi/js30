@@ -1,21 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans')
 body
     margin: 0
     padding: 0
-    background-color: #eee
+    background-color: #ffc600
 
 .container
     margin: 0 auto
     padding: 50px
+    max-width: 400px
     text-align: center
 
 .search-area
-    margin: auto
-    width: 50%
+    margin: 0 auto
 
 input
     padding: 10px
     font-size: 1.2em
     width: 100%
+    border: 8px solid #eee
+    border-radius: 10px
+    box-shadow: 0 0 5px rgba(0,0,0,0.12), inset 0 0 2px rgba(0,0,0,0.19)
+    outline: 0
 
 ul
     list-style: none
@@ -26,10 +31,26 @@ ul
 li
     padding: 10px 20px
     background: #fff
-    width: 100%
+    width: 85%
+    position: relative
+    left: 10px
     display: flex
     flex-direction: row
     justify-content: space-between
     font-size: 1.2em
     border-bottom: 1px solid #ddd
+    text-transform: capitalize
     
+li:nth-child(odd)
+    transform: perspective(100px) rotateX(3deg) translateY(2px)
+    background: linear-gradient(to bottom, #fff 0%, #efefef 100%)
+    
+    span
+        transform: perspective(100px) rotateX(-3deg)
+
+li:nth-child(even)
+    transform: perspective(100px) rotateX(-3deg) translateY(2px)
+    background: linear-gradient(to bottom, #fff 0%, #efefef 100%)
+    
+    span
+        transform: perspective(100px) rotateX(3deg)
