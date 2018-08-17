@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#draw {
+  border: 1px solid #ccc;
+  background-image: url("naked-barbie.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100%;
+  background-position: center;
+}
+
+#toolkit {
+  z-index: 999;
+  width: 150px;
+  float: left;
+  border: 1px solid #ccc;
+  position: fixed;
+  top: 100px;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+#toolkit ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#toolkit li {
+  padding: 10px;
+}
+#toolkit .out {
+  font-weight: bold;
+}
+#toolkit .in li {
+  display: inline-block;
+}
+#toolkit .in li:hover {
+  cursor: pointer;
+}
+#toolkit .in .current {
+  background: #ccc;
+  color: #fff;
+}
+
+/*# sourceMappingURL=html5-canvas.css.map */

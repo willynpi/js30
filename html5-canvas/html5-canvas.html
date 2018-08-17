@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="html5-canvas.css">
+</head>
+<body>
+    <!-- <img src="naked-barbie.jpg" alt=""> -->
+    <canvas id="draw"></canvas>
+    <div id="toolkit">
+        <ul class="out">
+            <li>mode</li>
+            <li>
+                <ul class="in">
+                    <li id="mc">circle</li>
+                    <li id="ml" class="current">line</li>
+                </ul>
+            </li>
+            <!-- <li>style</li>
+            <li>
+                <ul class="in">
+                    <li id="sc">circle</li>
+                    <li id="sr">rectangle</li>
+                    <li id="st">triangle</li>
+                </ul>
+            </li> -->
+            <li>size</li>
+            <li class="size-range">
+                <input type="range" id="s">
+                <p class="range">50</p>
+            </li>
+            <li>color</li>
+            <li class="color">
+                <input id="color" type="color">
+            </li>
+        </ul>
+    </div>
+    <script>
+        const canvas = document.getElementById('draw');
+        const ctx = canvas.getContext('2d');
+        const color = document.getElementById('color');
+        const initColor = '#BAB555';
+        color.value = initColor;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        ctx.strokeStyle = initColor;
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        ctx.lineWidth = 50;
+        let isDraw = false;
+        let startX = 0;
+        let startY = 0;
+        let mode = 0;
+        
+        
+        const draw = (e) => {
+            if(!isDraw) return;
+            ctx.beginPath();
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+            if(mode!=1)
+                [startX, startY ]= [e.offsetX, e.offsetY];
+        }
+
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', ()=>isDraw=false);
+        canvas.addEventListener('mousedown', (e)=>{
+            isDraw=true;
+            [startX, startY ]= [e.offsetX, e.offsetY];
+        });
+        
+        window.addEventListener('resize', () => {
+            [canvas.width, canvas.height]=[window.innerWidth, window.innerHeight];
+        });
+        document.getElementById('mc').addEventListener('click',()=>mode=1);
+        document.getElementById('ml').addEventListener('click',()=>mode=0);
+        document.getElementById('s').addEventListener('input',(e)=>{
+            ctx.lineWidth  = e.target.value;
+            document.querySelector('.range').innerText = e.target.value;
+        });
+        color.addEventListener('change',e => ctx.strokeStyle = e.target.value);
+        const options = document.querySelectorAll('.in li');
+        options.forEach((el)=>{
+            el.addEventListener('click',(e)=>{
+                document.querySelectorAll('li.current').forEach((ec)=>{
+                    ec.className = ec.className.replace(/current/g, '');
+                });
+                if(e.target.className.match(/current/g)) return;
+                e.target.className += 'current';
+            });
+        });
+        
+    </script>
+
+</body>
+</html>
