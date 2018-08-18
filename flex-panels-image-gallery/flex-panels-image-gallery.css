@@ -20,7 +20,7 @@ body {
     background-image: url('img/shiao.jpg');
 }
 .panel3 {
-    background-image: url('img/1.jpeg');
+    background-image: url('img/1.jpg');
 }
 .panel4 {
     background-image: url('img/rice.jpg');
@@ -79,8 +79,8 @@ a {
 }
 
 /* my way using only css */
-/*
-.panel:hover {
+
+/* .panel:hover {
     flex: 4;
     transition-duration: var(--transition-time);
     -moz-transition-duration: var(--transition-time);
@@ -101,11 +101,11 @@ a {
     -o-transition-duration: var(--transition-time);
     -webkit-transition-duration: var(--transition-time);
     
-}
-*/
+} */
 
 
-/* js30 official way */
+
+/* js30 way */
 .panel.open-active > *:first-child{ transform: translateY(0); }
 .panel.open-active > *:last-child{ transform: translateY(0); }
 .panel.open {
