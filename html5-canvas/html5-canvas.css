@@ -1,6 +1,7 @@
-body {
+html, body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 #draw {
@@ -42,6 +43,11 @@ body {
 #toolkit .in .current {
   background: #ccc;
   color: #fff;
+}
+
+#save:hover {
+  cursor: pointer;
+  color: #6699ff;
 }
 
 /*# sourceMappingURL=html5-canvas.css.map */

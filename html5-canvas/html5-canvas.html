@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Barbie's Clothe</title>
     <link rel="stylesheet" href="html5-canvas.css">
 </head>
 <body>
     <!-- <img src="naked-barbie.jpg" alt=""> -->
+    <div><h1>Barbie's Clothe</h1></div>
     <canvas id="draw"></canvas>
     <div id="toolkit">
         <ul class="out">
@@ -17,25 +18,20 @@
                 <ul class="in">
                     <li id="mc">circle</li>
                     <li id="ml" class="current">line</li>
+                    <li id="me">ereaser</li>
                 </ul>
             </li>
-            <!-- <li>style</li>
-            <li>
-                <ul class="in">
-                    <li id="sc">circle</li>
-                    <li id="sr">rectangle</li>
-                    <li id="st">triangle</li>
-                </ul>
-            </li> -->
             <li>size</li>
             <li class="size-range">
-                <input type="range" id="s">
-                <p class="range">50</p>
+                <input type="range" id="s"  value="10">
+                <p class="range">10</p>
             </li>
             <li>color</li>
             <li class="color">
                 <input id="color" type="color">
             </li>
+            <li id="save">save</li>
+            
         </ul>
     </div>
     <script>
@@ -49,7 +45,7 @@
         ctx.strokeStyle = initColor;
         ctx.lineJoin = 'round';
         ctx.lineCap = 'round';
-        ctx.lineWidth = 50;
+        ctx.lineWidth = 10;
         let isDraw = false;
         let startX = 0;
         let startY = 0;
@@ -62,8 +58,11 @@
             ctx.moveTo(startX, startY);
             ctx.lineTo(e.offsetX, e.offsetY);
             ctx.stroke();
+            ctx.globalCompositeOperation='source-over';
             if(mode!=1)
                 [startX, startY ]= [e.offsetX, e.offsetY];
+            if(mode==2)
+                ctx.globalCompositeOperation='destination-out';
         }
 
         canvas.addEventListener('mousemove', draw);
@@ -93,7 +92,9 @@
                 e.target.className += 'current';
             });
         });
-        
+        document.getElementById('me').addEventListener('click',()=>mode=2);
+        document.getElementById('save').addEventListener('click', ()=>{
+        });
     </script>
 
 </body>
