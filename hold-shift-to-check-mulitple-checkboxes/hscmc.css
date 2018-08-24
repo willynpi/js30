@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #6699ff;
+}
+
+.container {
+  padding: 20px;
+}
+
+.list {
+  max-width: 300px;
+  list-style: none;
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 5px;
+  box-shadow: 8px 8px #5785e1;
+  display: table;
+}
+.list li {
+  width: 100%;
+  border-bottom: 1px solid #e6e6e6;
+}
+.list li div {
+  display: table-cell;
+  padding: 10px;
+}
+.list li input[type=checkbox] {
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+}
+.list li .checkmark {
+  height: 15px;
+  width: 15px;
+  border-radius: 2px;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  display: block;
+  cursor: pointer;
+}
+.list li .checkmark.checked {
+  background: yellow;
+}
+.list li .checkmark.checked:after {
+  display: block;
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+}
+.list li .checkbox {
+  border-right: 1px solid #e6e6e6;
+  width: 10%;
+}
+.list li .content {
+  font-size: 1.2em;
+}
+.list li .content:first-child {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.list li .content:last-child {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.list li:last-child {
+  border-bottom: none;
+}
+.list li:hover {
+  cursor: pointer;
+}
+.list li:hover .content {
+  background-color: #fafafa;
+}
+
+/*# sourceMappingURL=hscmc.css.map */
