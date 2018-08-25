@@ -75,6 +75,10 @@ body {
 .list li .content:nth-of-type(1) {
   border-top-right-radius: 5px;
 }
+.list li .content::selection {
+  background-color: transparent;
+  color: black;
+}
 .list li:last-child {
   border-bottom: none;
 }
@@ -86,6 +90,7 @@ body {
 }
 .list li.checked .content {
   background-color: #fafafa;
+  text-decoration: line-through;
 }
 
 /*# sourceMappingURL=hscmc.css.map */
