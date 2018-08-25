@@ -8,6 +8,21 @@ body {
 
 .container {
   padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.block {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.block .title {
+  text-align: center;
+  color: #e51495;
+  font-size: 3em;
+  font-weight: bold;
+  text-shadow: 1px 2px 1px #ffce90;
 }
 
 .list {
@@ -91,6 +106,31 @@ body {
 .list li.checked .content {
   background-color: #fafafa;
   text-decoration: line-through;
+}
+
+.official {
+  margin: 0 auto;
+  background-color: white;
+  max-width: 300px;
+  padding: 0;
+  border-radius: 5px;
+  box-shadow: 8px 8px #5785e1;
+}
+.official .item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+.official .item input {
+  flex: 2;
+}
+.official .item p {
+  font-size: 1.2em;
+  flex: 10;
+  border-left: 1px solid #b7cfff;
+  padding: 15px;
+  margin: 0;
 }
 
 /*# sourceMappingURL=hscmc.css.map */
