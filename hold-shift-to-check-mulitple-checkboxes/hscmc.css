@@ -1,7 +1,9 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 body {
   margin: 0;
   padding: 0;
   background-color: #6699ff;
+  font-family: "Open Sans", sans-serif;
 }
 
 .container {
@@ -17,6 +19,7 @@ body {
   border-radius: 5px;
   box-shadow: 8px 8px #5785e1;
   display: table;
+  position: relative;
 }
 .list li {
   width: 100%;
@@ -31,6 +34,12 @@ body {
   position: absolute;
   cursor: pointer;
 }
+.list li input[type=checkbox]:checked + .checkmark {
+  background: #46f667;
+}
+.list li input[type=checkbox]:checked + .checkmark:after {
+  display: block;
+}
 .list li .checkmark {
   height: 15px;
   width: 15px;
@@ -39,17 +48,19 @@ body {
   background-color: #fff;
   display: block;
   cursor: pointer;
+  position: relative;
 }
-.list li .checkmark.checked {
-  background: yellow;
-}
-.list li .checkmark.checked:after {
-  display: block;
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
+.list li .checkmark:after {
+  left: 5px;
+  top: 1px;
+  width: 3px;
+  height: 8px;
   border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  content: "";
+  position: absolute;
+  display: none;
 }
 .list li .checkbox {
   border-right: 1px solid #e6e6e6;
@@ -58,13 +69,11 @@ body {
 .list li .content {
   font-size: 1.2em;
 }
-.list li .content:first-child {
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-}
 .list li .content:last-child {
   border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+}
+.list li .content:nth-of-type(1) {
+  border-top-right-radius: 5px;
 }
 .list li:last-child {
   border-bottom: none;
@@ -73,6 +82,9 @@ body {
   cursor: pointer;
 }
 .list li:hover .content {
+  background-color: #fafafa;
+}
+.list li.checked .content {
   background-color: #fafafa;
 }
 
