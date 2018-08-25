@@ -27,17 +27,18 @@ lis.forEach(el => {
     });
 });
 
-const items = document.querySelectorAll('.items');
+const items = document.querySelectorAll('.item');
 const divsCheckboxed = document.querySelectorAll('.official input[type=checkbox]');
 let lastChecked = 0
 let currentChecked = 0
 const handleCheck = (e) => {
-    currentChecked = e.target.previousElementSibling.children[0];
+    currentChecked = e.target;
+    console.log(currentChecked)
     currentChecked.checked = true;
     let inBetween = false;
-    checkboxed.forEach(box => {
-        if(e.shiftKey && startClick) {
-            if(box === startClick || box === currentChecked ) {
+    divsCheckboxed.forEach(box => {
+        if(e.shiftKey && lastChecked) {
+            if(box === lastChecked || box === currentChecked ) {
                 inBetween = !inBetween;
             }
             if(inBetween) {

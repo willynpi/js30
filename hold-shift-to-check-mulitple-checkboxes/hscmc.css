@@ -1,4 +1,26 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+.official .item input[type=checkbox]:checked + p, .list li.checked .content {
+  background-color: #fafafa;
+  text-decoration: line-through;
+}
+
+.official, .list {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 8px 8px rgba(0, 0, 0, 0.1);
+}
+
+.official .first p, .list li.first:hover .content, .list .first.checked .content {
+  border-top-right-radius: 5px;
+}
+
+.official .last p, .list li.last:hover .content, .list .last.checked .content {
+  border-bottom-right-radius: 5px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -23,16 +45,11 @@ body {
   font-size: 3em;
   font-weight: bold;
   text-shadow: 1px 2px 1px #ffce90;
+  padding: 10px;
 }
 
 .list {
-  max-width: 300px;
   list-style: none;
-  background-color: #fff;
-  margin: 0 auto;
-  padding: 0;
-  border-radius: 5px;
-  box-shadow: 8px 8px #5785e1;
   display: table;
   position: relative;
 }
@@ -73,22 +90,18 @@ body {
   border: solid white;
   border-width: 0 2px 2px 0;
   -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
   content: "";
   position: absolute;
   display: none;
 }
 .list li .checkbox {
-  border-right: 1px solid #e6e6e6;
+  border-right: 1px solid #b7cfff;
   width: 10%;
 }
 .list li .content {
   font-size: 1.2em;
-}
-.list li .content:last-child {
-  border-bottom-right-radius: 5px;
-}
-.list li .content:nth-of-type(1) {
-  border-top-right-radius: 5px;
 }
 .list li .content::selection {
   background-color: transparent;
@@ -103,19 +116,6 @@ body {
 .list li:hover .content {
   background-color: #fafafa;
 }
-.list li.checked .content {
-  background-color: #fafafa;
-  text-decoration: line-through;
-}
-
-.official {
-  margin: 0 auto;
-  background-color: white;
-  max-width: 300px;
-  padding: 0;
-  border-radius: 5px;
-  box-shadow: 8px 8px #5785e1;
-}
 .official .item {
   display: flex;
   flex-direction: row;
@@ -125,12 +125,22 @@ body {
 .official .item input {
   flex: 2;
 }
+.official .item input[type=checkbox]::selection {
+  border: none;
+}
 .official .item p {
   font-size: 1.2em;
   flex: 10;
   border-left: 1px solid #b7cfff;
   padding: 15px;
   margin: 0;
+}
+.official .item:last-child {
+  border-bottom: none;
+}
+
+input:focus {
+  outline: none !important;
 }
 
 /*# sourceMappingURL=hscmc.css.map */
