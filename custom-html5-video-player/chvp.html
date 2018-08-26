@@ -9,7 +9,25 @@
 </head>
 <body>
     <div class="container">
-        <video class="video" src="./pingpong.mov" controls></video>
+        <h1>#11 Custom HTML5 Video Player</h1>
+        <div class="player">
+            <video class="video" src="./demo.mov"></video>
+            <div class="player_controls">
+                <div class="progress">
+                    <div class="current_progress"></div>
+                </div>
+                <div class="buttons">
+                    <button class="play">▶</button>
+                    <label for="">volume</label>
+                    <input type="range" class="slider" name="volume" id="volume" min="0" max="1" step=".05" value="1">
+                    <label for="">speed</label>
+                    <input type="range" class="slider" name="speed" id="speed" min="0.5" max="2" step=".1" value="1">
+                    <button class="move" data-second="-10"><< 10s</button>
+                    <button class="move" data-second="10">10s >></button>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="./chvp.js"></script>
 </body>
 </html>
