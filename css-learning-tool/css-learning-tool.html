@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Learning Tool</title>
+	<link rel="stylesheet" href="./css-learning-tool.css">
+	<style></style>
+</head>
+<body>
+	<div class="container">
+		<div id="css">
+			<button id="render-btn">RENDER</button>
+			<p>HTML</p>
+			<textarea name="" id="tdmt" cols="30" rows="10"></textarea>
+			<p>CSS</p>
+			<textarea name="" id="tcss" cols="30" rows="10"></textarea>
+		</div>
+		<div id="render"></div>
+	</div>
+</body>
+<script>
+	const renderBtn = document.getElementById('render-btn');
+	const render = document.getElementById('render');
+	const tdmt = document.getElementById('tdmt');
+	const tcss = document.getElementById('tcss');
+	const style = document.querySelector('style');
+	renderBtn.addEventListener('click', () => {
+		render.innerHTML = tdmt.value;
+		style.innerText = tcss.value;
+	});
+</script>
+</html>

@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+body {
+  height: 95vh;
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  height: 100%;
+  padding: 10px 20px;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+}
+.container div {
+  flex: 1;
+}
+
+#css {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+#css button {
+  border: none;
+  padding: 10px;
+  background: #54915f;
+  color: #fff;
+  margin: 10px;
+  font-weight: bold;
+  width: 100px;
+  border-radius: 5px;
+}
+#css textarea {
+  margin: 0px 10px;
+  overflow-x: hidden;
+  padding: 20px 10px;
+  flex: 1;
+}
+#css p {
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 0.8em;
+  color: #222;
+}
+
+#render {
+  border: 1px solid #ccc;
+}
+
+/*# sourceMappingURL=css-learning-tool.css.map */
