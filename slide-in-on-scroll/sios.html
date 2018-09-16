@@ -120,20 +120,33 @@
 		</div>
 	</div>
 	<script>
-		const imgs = document.querySelectorAll('img');
+		const imgs = document.querySelectorAll('img')
+		function debounce(func, wait = 20, immediate = true) {
+			var timeout
+			return function() {
+				var context = this, args = arguments
+				var later = function() {
+					timeout = null
+					if (!immediate) func.apply(context, args)
+				};
+				var callNow = immediate && !timeout
+				clearTimeout(timeout)
+				timeout = setTimeout(later, wait)
+				if (callNow) func.apply(context, args)
+			}
+		}
 		function imageMove() {
 			imgs.forEach((img) => {
-				const scrollAt = window.scrollY + window.innerHeight;
-				const imageBottom = img.offsetTop + img.height;
-				if (scrollAt > img.offsetTop && window.scrollY < imageBottom ) {
-					img.classList.add('gradual-in');
+				const scrollAt = window.scrollY + window.innerHeight
+				const imageBottom = img.offsetTop + img.height
+				if (scrollAt > img.offsetTop && window.scrollY < imageBottom) {
+					img.classList.add('gradual-in')
 				} else {
-					img.classList.remove('gradual-in');
+					img.classList.remove('gradual-in')
 				}
-			});
+			})
 		}
-		window.addEventListener('scroll', imageMove);
-
+		window.addEventListener('scroll', debounce(imageMove))
 	</script>
 </body>
 </html>
