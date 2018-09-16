@@ -28,7 +28,7 @@
 	<div class="container">
 		<h1>Torrents of Water in Towns Across the Carolinas. And a Guy With a Boat.</h1>
 		<div class="story-figure">
-			<img src="pic\sios1.jpg" alt="">
+			<img src="pic\sios1.jpg" alt="" class="center">
 			<p class="note">Annie Minnifield, 71, is rescued from her home by members of the New Bern and Greenville Fire Departments in New Bern, N.C.</p>
 			<p class="photo-credit"> <span>Victor J. Blue for The New York Times</span></p>
 		</div>
@@ -75,7 +75,7 @@
 						<p class="date">Sept. 13, 2018</p>
 					</div>
 					<div class="figure">
-						<img src="pic/geo.png" alt="">
+						<img src="pic/geo.png" alt="" class="right">
 					</div>
 				</div>
 				<p>
@@ -93,8 +93,28 @@
 				<p>
 				.......
 				</p>
+				<p>
+				They tried to get their bearings. Was that a street or a creek? What was the difference anymore?
+				</p>
+				<p>
+				“Nobody step out of the boat at anytime,” said Mr. O’Neal, whose day job is as a safety specialist. “We don’t know what’s in there.”
+				</p>
+				<p>
+				Was this Summer Haven Lane? They couldn’t see any signs.
+				</p>
+				<p>
+				“Where we going right now?” Mr. Tillman asked.
+				</p>
+				<p>
+				They steered around mailboxes, branches, pulverized decking and other debris that could blow out the propeller. When the water got too shallow and the boat scraped bottom, the men hopped out and waded, grabbing pieces of fence post and siding to sound the depth of the water in front of them.
+				</p>
+				<div class="story-figure">
+					<img src="pic\sios2.jpg" alt="" class="center">
+					<p class="note">Parker Williams, left, a volunteer with the Bunyan Fire Department, and Tray Tillman steer through swirling floodwaters as they search for people in need of rescue in Washington, N.C.</p>
+					<p class="photo-credit"> <span>CreditJack Healy/The New York Times</span></p>
+				</div>
 				<p class="original">
-				<a href="https://www.nytimes.com/2018/09/15/us/florence-volunteer-rescue.html?action=click&module=Top%20Stories&pgtype=Homepage">original news
+				<a href="https://www.nytimes.com/2018/09/15/us/florence-volunteer-rescue.html?action=click&module=Top%20Stories&pgtype=Homepage" target="_blank">original news
 				</p>
 			</article>
 		</div>
@@ -106,9 +126,9 @@
 				const scrollAt = window.scrollY + window.innerHeight;
 				const imageBottom = img.offsetTop + img.height;
 				if (scrollAt > img.offsetTop && window.scrollY < imageBottom ) {
-					img.classList.add('slide-in');
+					img.classList.add('gradual-in');
 				} else {
-					img.classList.remove('slide-in');
+					img.classList.remove('gradual-in');
 				}
 			});
 		}

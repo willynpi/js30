@@ -113,11 +113,11 @@ nav .logo {
 }
 .container .story-figure .note {
   font-size: 1.1em;
-  line-height: 1px;
+  margin-top: -3px;
 }
 .container .story-figure .photo-credit {
   font-size: 1em;
-  line-height: 1px;
+  margin-top: -10px;
 }
 .container .story-figure .photo-credit span {
   font-size: 0.8em;
@@ -178,13 +178,22 @@ nav .logo {
   font-size: 0.8em;
   color: #aaa;
 }
-.container img {
-  transform: translateX(-30%);
+.container .right {
+  transform: translateX(30%);
   opacity: 0;
   transition: all 1s;
 }
-.container img.slide-in {
+.container .right.gradual-in {
   transform: translateX(0);
+  opacity: 1;
+}
+.container .center {
+  transform: scale(0.5);
+  opacity: 0;
+  transition: all 1s;
+}
+.container .center.gradual-in {
+  transform: scale(1);
   opacity: 1;
 }
 
