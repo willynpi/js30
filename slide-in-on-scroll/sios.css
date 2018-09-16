@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css?family=Libre+Barcode+39+Extended");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+nav {
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  margin: 0;
+  position: relative;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+}
+nav .left {
+  position: relative;
+  left: 10px;
+  top: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+nav .left .side-nav {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  margin: 4px;
+  padding: 8px 5px 5px 5px;
+}
+nav .left .side-nav .line1, nav .left .side-nav .line2, nav .left .side-nav .line3 {
+  width: 14px;
+  background-color: black;
+  position: relative;
+  height: 2px;
+  border-radius: 2px;
+}
+nav .left .side-nav .line2 {
+  margin: 2px 0;
+}
+nav .left .search {
+  cursor: pointer;
+  width: 20px;
+  padding: 5px;
+  height: 20px;
+  margin: 4px;
+}
+nav .left .search .scope {
+  display: border-box;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+nav .left .search .handle {
+  width: 3px;
+  height: 6px;
+  background-color: black;
+  border-radius: 1px;
+  transform: rotate(-45deg);
+  position: relative;
+  left: 11px;
+  top: -3px;
+}
+nav .left .lang {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 7px;
+}
+nav .right {
+  position: absolute;
+  right: 8px;
+  top: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+nav .right .btn {
+  cursor: pointer;
+  background-color: #6288a5;
+  border: 1px solid #326891;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 7px 9px;
+  border-radius: 3px;
+  margin: 5px;
+  vertical-align: middle;
+}
+nav .logo {
+  cursor: pointer;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
+  position: relative;
+}
+
+.container {
+  width: 75%;
+  margin: auto;
+}
+.container p {
+  font-size: 1.2em;
+}
+.container .story-figure {
+  margin-top: 20px;
+}
+.container .story-figure img {
+  width: 100%;
+}
+.container .story-figure .note {
+  font-size: 1.1em;
+  line-height: 1px;
+}
+.container .story-figure .photo-credit {
+  font-size: 1em;
+  line-height: 1px;
+}
+.container .story-figure .photo-credit span {
+  font-size: 0.8em;
+  color: #aaa;
+}
+.container h1, .container .content {
+  width: 720px;
+  text-align: left;
+  margin: 50px auto;
+}
+.container .content p {
+  font-size: 1.3em;
+}
+.container .content .author {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+.container .content .author a {
+  text-decoration: dotted;
+  color: black;
+}
+.container .content .date {
+  color: #333;
+  font-size: 0.9em;
+}
+.container .content .original a {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #326891;
+}
+.container .content .original a:visited {
+  color: #326891;
+}
+.container .content .img-block {
+  text-align: left;
+  padding: 20px 0px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.container .content .img-block .info {
+  width: 216px;
+  margin-right: 10px;
+}
+.container .content .img-block .title {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+.container .content .img-block .figure img {
+  width: 468px;
+}
+.container .content .img-block .note {
+  font-size: 0.8em;
+}
+.container .content .img-block .date {
+  font-size: 0.8em;
+  color: #aaa;
+}
+.container img {
+  transform: translateX(-30%);
+  opacity: 0;
+  transition: all 1s;
+}
+.container img.slide-in {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/*# sourceMappingURL=sios.css.map */

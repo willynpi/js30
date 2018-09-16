@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hurricane Victims Call for Help, and a Guy With a Boat Comes to the Rescue</title>
+	<link rel="stylesheet" href="sios.css">
+</head>
+<body>
+	<nav>
+		<div class="left">
+			<div class="side-nav">
+				<div class="line1"></div>
+				<div class="line2"></div>
+				<div class="line3"></div>
+			</div>
+			<div class="search">
+				<div class="scope"></div>
+				<div class="handle"></div>
+			</div>
+			<div class="lang">U.S.</div>
+		</div>
+		<div class="logo">The New York Times</div>
+		<div class="right">
+			<div class="btn">subscribe now</div>
+			<div class="btn">log in</div>
+		</div>
+	</nav>
+	<div class="container">
+		<h1>Torrents of Water in Towns Across the Carolinas. And a Guy With a Boat.</h1>
+		<div class="story-figure">
+			<img src="pic\sios1.jpg" alt="">
+			<p class="note">Annie Minnifield, 71, is rescued from her home by members of the New Bern and Greenville Fire Departments in New Bern, N.C.</p>
+			<p class="photo-credit"> <span>Victor J. Blue for The New York Times</span></p>
+		</div>
+		<div class="content">
+			<div>
+				<p class="author">By <a href="#">Jack Healy</a> and <a href="#">Sheri Fink</a></p>
+				<p class="date">Sept. 15, 2018</p>
+			</div>
+			<div class="actions">
+				<div class="fb"></div>
+				<div class="twtr"></div>
+				<div class="mail"></div>
+				<div class="forward"></div>
+				<div class="mark"></div>
+			</div>
+			<article class="article">
+				<p>
+				WASHINGTON, N.C. — As the flat-bottomed fishing boat crept into a swirling river that had once been Summer Haven Lane, Tray Tillman scanned the brown floodwaters and half-submerged houses in search of somebody to save.
+				</p>
+				<p>
+				“Today it’s been women and kids,” Mr. Tillman said.
+				</p>
+				<p>
+				Mr. Tillman, 26, a construction foreman, was part of a makeshift rescue flotilla that has plucked hundreds of stranded people from attics, second-floor bedrooms, church vestibules and crumbling decks as relentless, record-setting rains from Tropical Storm Florence flood rivers across the Carolinas and send torrents of water through downtowns miles away from the coast.
+				</p>
+				<p>
+				Inland flooding is perhaps the biggest continuing danger as Florence trudges through the Carolinas, and an improvised network of volunteers, some helping from as far away as Africa, has sprung up to locate and rescue people who did not evacuate. Harnett County, N.C., which is in the path of a river that was expected to crest overnight at 17 feet above flood stage, was one of many jurisdictions that ordered new evacuations. At least six deaths were confirmed.
+				</p>
+				<p>
+				“They’re used to flooding, but nothing like this,” said Dan DiRenzo, who steered the boats with New Jersey Task Force One Urban Search and Rescue, one of the teams deployed by the Federal Emergency Management Agency to North Carolina, South Carolina and Virginia.
+				</p>
+				<p>
+				[Follow our live briefing on all the developments with Tropical Storm Florence.]
+				</p>
+				<p>
+				FEMA said it had more than 1,000 workers in the Carolinas, and the Coast Guard said it had ships and search-and-rescue crews at the ready. Tennessee sent firefighters and swift-water rescue specialists, and Maryland said it would send its helicopter aquatic rescue team, including two Blackhawk helicopters, on Sunday. A team of specialists in urban search-and-rescue and medical care left with boats to North Carolina from New York City, and another team left from Nevada.
+				</p>
+				<div class="img-block">
+					<div class="info">
+						<p class="title">Mapping Florence’s Impact: Rainfall, Wind, and Power Failures</p>
+						<p class="note">
+							Maps showing power outages and other effects along the storm’s path.
+						</p>
+						<p class="date">Sept. 13, 2018</p>
+					</div>
+					<div class="figure">
+						<img src="pic/geo.png" alt="">
+					</div>
+				</div>
+				<p>
+				There are scores of highly trained rescuers deployed by FEMA. There are hundreds of local sheriff’s deputies and firefighters trundling through neighborhoods in their tallest trucks. There are volunteers with unofficial rescue groups such as the Cajun Navy, and monitors as far away as Nigeria searching for calls for help and posting people’s locations on crowdsourced rescue databases.
+				</p>
+				<p>
+				Then there is Mr. Tillman: a guy with a boat.
+				</p>
+				<p>
+				A former soldier, he was just a local resident who wanted to help. On Friday, he drove around Washington, N.C., with a metal skiff lashed to the top of his minivan, responding to pleas posted online for help. When a rescue partner who had been working with him got tired, Mr. Tillman went out alone. When he broke his outboard propeller on a piece of wood, he hunted down a replacement.
+				</p>
+				<p>
+				On Friday alone, more than 385 people were rescued from the city of New Bern, about 40 miles to the south. Dozens more were rescued from homes in Washington, up and down the Pamlico River.
+				</p>
+				<p>
+				.......
+				</p>
+				<p class="original">
+				<a href="https://www.nytimes.com/2018/09/15/us/florence-volunteer-rescue.html?action=click&module=Top%20Stories&pgtype=Homepage">original news
+				</p>
+			</article>
+		</div>
+	</div>
+	<script>
+		const imgs = document.querySelectorAll('img');
+		function imageMove() {
+			imgs.forEach((img) => {
+				const scrollAt = window.scrollY + window.innerHeight;
+				const imageBottom = img.offsetTop + img.height;
+				if (scrollAt > img.offsetTop && window.scrollY < imageBottom ) {
+					img.classList.add('slide-in');
+				} else {
+					img.classList.remove('slide-in');
+				}
+			});
+		}
+		window.addEventListener('scroll', imageMove);
+
+	</script>
+</body>
+</html>
