@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>#16 LocalStorage and Event Delegation</title>
+</head>
+<body>
+	<div class="wrapper">
+		<h2>LOCAL TAPAS</h2>
+		<p></p>
+		<ul class="plates">
+			<li>Loading Tapas...</li>
+		</ul>
+		<form action="" class="add-items">
+			<input type="text" name="item" placeholder="Item Name" required>
+			<input type="submit" value="+ Add Item">
+		</form>
+	</div>
+	<script>
+		const addItems = document.querySelector('.add-items');
+		const itemList = document.querySelector('.plates');
+		const input = document.querySelector('[name=item]');
+		const items = [];
+
+
+		function addItem(e) {
+			e.preventDefault();
+			const text = input.value;
+
+			items.push(text);
+			itemList.innerHTML = items.map((plates) => {
+				return `<li>${plates}</li>`;
+			}).join('');
+			this.reset();
+		}
+
+		// function addItem(e) {
+		// 	e.preventDefault();
+		// 	const text = input.value; 
+		// 	const item ={
+		// 		text,
+		// 		done: false
+		// 	};
+
+		// 	items.push(item);
+		// 	populateList(items, itemList);
+		// 	LocalStorage.setItem('items', JSON.parse(items));
+		// 	this.reset();
+		// }
+
+		// function populateList(plates = [], platesList) {
+		// 	platesList.innerHTML = plates.map((plates, i) => {
+		// 		return `
+		// 			<li>
+		// 				<input type="checkbox" data-index=${i} id="item${i}" ${plates.done? 'checked': ''} />
+		// 				<label for="">${plates.text}</label>
+		// 			</li>	
+		// 		`;
+		// 	}).join('');
+		// }
+		addItems.addEventListener('submit', addItem);
+	</script>
+</body>
+</html>
