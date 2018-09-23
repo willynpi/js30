@@ -136,6 +136,7 @@
 			}
 		}
 		function imageMove() {
+			console.log('scrollY: '+scrollY);
 			imgs.forEach((img) => {
 				const scrollAt = window.scrollY + window.innerHeight
 				const imageBottom = img.offsetTop + img.height
@@ -146,7 +147,7 @@
 				}
 			})
 		}
-		window.addEventListener('scroll', debounce(imageMove))
+		window.addEventListener('scroll', debounce(imageMove, 0, false))
 	</script>
 </body>
 </html>
