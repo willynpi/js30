@@ -3,17 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>#16 LocalStorage and Event Delegation</title>
+	<link rel="stylesheet" href="laed.css">
 </head>
 <body>
+
 	<div class="wrapper">
-		<h2>LOCAL TAPAS</h2>
+		<h2>Memories</h2>
 		<p></p>
 		<ul class="plates">
-			<li>Loading Tapas...</li>
+			<li>Listing out your memories.</li>
 		</ul>
 		<form class="add-items">
-			<input type="text" name="item" placeholder="Item Name" required>
-			<input type="submit" value="+ Add Item">
+			<input type="text" name="item" placeholder="How are you today?" required>
+			<input type="submit" value="+ Add">
 		</form>
 	</div>
 	<script>
@@ -44,7 +46,7 @@
 						<label for="item${i}">${plate.text}</label>
 					</li>
 				`;
-			}).join('');
+			}).join('') || "Add some stories.";
 		}
 
 		function toggleDone(e) {
