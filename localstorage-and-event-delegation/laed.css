@@ -2,9 +2,17 @@
 html {
   display: flex;
   justify-content: center;
-  align-items: center;
   text-align: center;
   height: 100vh;
+  background-image: linear-gradient(to bottom, #00ffd7, #6699ff, #d2b2e2);
+  background-size: cover;
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+h1 {
+  display: block;
+  width: 50px;
+  margin-bottom: 40px;
 }
 
 .wrapper {
@@ -46,7 +54,6 @@ html {
   border-radius: 2px;
   border: 1px solid #ddd;
   padding: 10px;
-  display: inline-box;
 }
 
 /*# sourceMappingURL=laed.css.map */
