@@ -1,0 +1,49 @@
+<!DOCTYPE>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>#16 CSS text shadow mouse move effect</title>
+		<!-- <link rel="stylesheet" href="ctsmme.css"> -->
+		<style>
+			html {
+				font-family: Futura,"Trebuchet MS",Arial,sans-serif;
+			}
+			body {
+				margin: 0;
+			}
+			.hero {
+				min-height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: black;
+				font-size: 50px;
+				text-shadow: 10px 10px 15px rgba(0,0,0,.5);
+			}
+
+		</style>
+	</head>
+	<body>
+		<div class="hero">
+			<h1 class="look">LOOK AT ME</h1>
+		</div>
+		<script>
+			const hero = document.querySelector('.hero');
+			const look = document.querySelector('.look');
+			const walk = 100;
+			function shadow(e) {
+				let { offsetX: x, offsetY: y } = e;
+				const { offsetLeft: lefts, offsetTop: tops } = look;
+				const { offsetHeight: height, offsetWidth: width } = hero;
+				if(this !== e.target) {
+					x = x + lefts;
+					y = y + tops;
+				}
+				shadowX = Math.round((x / width * walk) - (walk / 2));
+				shadowY = Math.round((y / height * walk) - (walk / 2));
+				look.style.textShadow = `${shadowX}px ${shadowY}px 15px rgba(0,0,0,.5)`;
+			}
+			hero.addEventListener('mousemove', shadow);
+		</script>
+	</body>
+</html>
