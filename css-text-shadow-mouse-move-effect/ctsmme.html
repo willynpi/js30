@@ -32,7 +32,9 @@
 			const look = document.querySelector('.look');
 			const walk = 100;
 			function shadow(e) {
+				console.log(e);
 				let { offsetX: x, offsetY: y } = e;
+				console.log(e.clientX,e.clientY, x,y,e.offsetX, e.offsetY);
 				const { offsetLeft: lefts, offsetTop: tops } = look;
 				const { offsetHeight: height, offsetWidth: width } = hero;
 				if(this !== e.target) {
