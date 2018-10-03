@@ -181,9 +181,25 @@
       Video 58
     </li>
   </ul>
+  <h3>Total: <span class="total"></span></h3>
 <script>
     const lis = document.querySelectorAll('[data-time]');
-    const times = array.from()
+    const times = Array.from(lis);
+    const total = times
+      .map(item => item.dataset.time)
+      .map(item => {
+        [x,y] = item.split(':').map(parseFloat);
+        return x*60 + y;
+      })
+      .reduce((i,j) => i + j);
+    
+    hour = Math.floor(total / 3600);
+    second = total%3600;
+    min = Math.floor(second/60);
+    second = min%60;
+    document.querySelector('.total').innerText = `${hour}:${min}:${second}`;
+    // console.log(hour, min, second);
+
 </script>
 </body>
 </html>
