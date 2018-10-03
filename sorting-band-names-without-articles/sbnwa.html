@@ -2,14 +2,56 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="sbnwa.css">		
+		<title>#17</title>
+		<style>
+			.container {
+				top: 50%;
+				left: 50%;
+				margin-top: -250px;
+				margin-left: -200px;
+				position: absolute;
+			}
+			#bands {
+				width: 300px;
+				list-style: none;
+				background: white;
+				padding: 0;
+				border-radius: 5px;
+				box-shadow: 0px 0px 0px 15px rgba(0,0,0,.2);
+			}
+			#bands li {
+				padding: 20px;
+				border-bottom: 1px solid #ccc;
+			}
+			body {
+				background: linear-gradient(#6699ff, #9966ff);
+			}
+		</style>		
 	</head>
 	<body>
-		<ul id="bands">
-			
-		</ul>
+		<div class="container">	
+			<h1>
+				#17 Sorting
+			</h1>
+			<ul id="bands">
+				
+			</ul>
+		</div>
 		<script>
 			const bands = ['The Plot in You','Hello how are you.','I am happy with you.','Can you speak with me.','Body in shape.','Will you like me?']
+
+			function strip(item) {
+				return item.replace(/^(a |the |an)/i, '').trim();
+				//(a |the) -> Find any of the alternatives specified.
+				//i ->	Perform case-insensitive matching.
+
+			}
+			const sortedBands = bands.sort(function (a, b) {
+				return strip(a) > strip(b) ? 1: -1;
+			});
+			document.querySelector('#bands').innerHTML = sortedBands.map(function(item){
+				return `<li>${item}</li>`;
+			}).join('');
 		</script>
 	</body>
 </html>
