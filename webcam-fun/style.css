@@ -1,0 +1,13 @@
+/*.player {
+	height: 500px;
+	width: 500px;
+}*/
+.strip a {
+	display: inline-block;		
+	margin: 10px;
+	
+}
+.strip img {
+	width: 150px;
+	height: auto;
+}
