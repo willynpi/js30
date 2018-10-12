@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>#20 Native Speech Recognition</title>
+	<style>
+		body {
+			background-color: #bbddff;
+		}
+		.container {
+	      max-width: 500px;
+	      margin: 50px auto;
+	      padding: 1rem 2rem 1rem 5rem;
+	      position: relative;
+	      
+	    }
+	    .result {
+	      	margin-top: 30px;
+	      	background: white;
+	    	background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
+	    	border-radius: 5px;
+	    	box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+	      	background-size: 100% 3rem;
+	    	line-height: 3rem;
+	    }
+	    h1 {
+	    	color: #25979a;
+	    }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Say something.</h1>
+		<div class="result" contenteditable="true"></div>
+		<!-- <div class="btn-save">Save</div> -->
+	</div>
+	<script>
+		window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+		const recognition = new SpeechRecognition();
+		const words = document.querySelector('.result');
+		recognition.interimResults = true;
+		recognition.lang = 'cmn-Hant-TW';
+		recognition.continuous = false;
+		recognition.addEventListener('result', e => {
+			// result.innerHTML = e.results[0][0].transcript;
+			const transcript = Array.from(e.results)
+				.map(result => result[0])
+				.map(result => result.transcript)
+				.join('')
+
+			// console.log(transcript);
+			if (e.results[0].isFinal) {
+				p = document.createElement('p');
+				p.textContent = transcript;
+				words.appendChild(p);
+			}
+		});
+
+		recognition.addEventListener('end', recognition.start);
+		recognition.start();
+	</script>
+</body>
+</html>
