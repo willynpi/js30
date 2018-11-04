@@ -3,3 +3,6 @@
 */.css.map
 */.sass
 */demo-video.mp4
+node_modules
+.vscode
+package-lock.json
