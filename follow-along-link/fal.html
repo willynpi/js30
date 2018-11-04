@@ -27,12 +27,15 @@
 
   <script>
     const links = document.querySelectorAll('a');
+    //create a span element, set up with highlight class and appended to body.
+    //it'll be presented as no width and hight, default x and y are 0. 
     const highlight = document.createElement('span');
     highlight.classList.add('highlight');
     document.body.appendChild(highlight);
-    links.forEach(el => {
-      el.addEventListener('mouseenter', e => {
-        const linkCoords = el.getBoundingClientRect();
+
+    function highlightLink() {
+        //let the highlight span fit and moved to the hovered link.
+        const linkCoords = this.getBoundingClientRect();
         const { width, height, x, y } = linkCoords;
         highlight.style.width = `${width}px`;
         highlight.style.height = `${height}px`;
@@ -49,7 +52,9 @@
         highlight.style.height = `${coords.height}px`;
         highlight.style.transform = `translate(${coords.x}px, ${coords.y}px)`;
         */
-      });
+    }
+    links.forEach(el => {
+      el.addEventListener('mouseenter', highlightLink);
     });
   </script>
 </body>
