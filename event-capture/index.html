@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>#25 Event Capture , Propagation, Bubbling and Once</title>
+    <link href='https://fonts.googleapis.com/css?family=Libre+Barcode+39+Extended' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        .yellow {
+            background-color: rgb(241, 211, 75);
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+        }
+        .wrap {
+            margin: auto;
+            max-width: 180px;
+        }
+        .coral {
+            height: 30%;
+            margin: auto;
+            padding: 20px;
+            background-color: coral;
+        }
+        .cadetblue {
+            padding: 20px;
+            margin: auto;
+            background-color:cadetblue;
+        }
+        .click {
+            background-color:rgb(5, 156, 86);
+            padding:10px;
+            margin: auto;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        div {
+            border-radius: 3px;
+        }
+        h1 {
+            display: block;
+            position: absolute;
+            padding: 10px 20px 10px 40px;
+            background-color: darkgoldenrod;
+            color: rgb(66, 34, 4);
+            box-shadow: 0px 2px 10px rgba(0,0,0,.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>#25 Event Capture, Propagation, Bubbling and Once</h1>
+    <div class="yellow">
+        <div class="normal wrap">
+            <h2>Normal</h2>
+            <div class="coral">
+                <div class="cadetblue">
+                    <div class="click">Click me</div>
+                </div>
+            </div>
+            <div class="res"></div>
+        </div>
+        <div class="capture wrap">
+            <h2>Capture</h2>
+            <div class="coral">
+                <div class="cadetblue">
+                    <div class="click">Click me</div>
+                </div>
+            </div>
+            <div class="res"></div>
+        </div>
+        <div class="stop-propagation wrap">
+            <h2>Stop Propagation</h2>
+            <div class="coral">
+                <div class="cadetblue">
+                    <div class="click">Click me</div>
+                </div>
+            </div>
+            <div class="res"></div>
+        </div>
+        <div class="once wrap">
+            <h2>Once</h2>
+            <div class="coral">
+                <div class="cadetblue">
+                    <div class="click">Click me</div>
+                </div>
+            </div>
+            <div class="res"></div>
+        </div>
+    </div>
+</body>
+<script>
+    //normal
+    const normalRes = document.querySelector('.normal.wrap .res');
+    function normalLogText(e) {
+        normalRes.innerHTML += `<p>${this.classList.value}</p>`;
+    }
+    const nomralDivs = document.querySelectorAll('.normal div');
+    nomralDivs.forEach(div => div.addEventListener('click', normalLogText));
+
+    //stopPropagation
+    const selfRes = document.querySelector('.stop-propagation.wrap .res');
+    function selflLogText(e) {
+        selfRes.innerHTML += `<p>${this.classList.value}</p>`;
+        e.stopPropagation(); //事件觸發後停止傳遞觸發。
+    }
+    const selfDivs = document.querySelectorAll('.stop-propagation div');
+    selfDivs.forEach(div => div.addEventListener('click', selflLogText));
+
+    //capture: true
+    const captureRes = document.querySelector('.capture.wrap .res');
+    function captureLogText(e) {
+        captureRes.innerHTML += `<p>${this.classList.value}</p>`;
+    }
+    const captureDivs = document.querySelectorAll('.capture div');
+    captureDivs.forEach(div => div.addEventListener('click', captureLogText, {
+        capture: true //由最外層元件事件開始觸發。
+    }));
+
+    //once: true
+    const onceRes = document.querySelector('.once.wrap .res');
+    function onceLogText(e) {
+        onceRes.innerHTML += `<p>${this.classList.value}</p>`;
+    }
+    const onceDivs = document.querySelectorAll('.once div');
+    onceDivs.forEach(div => div.addEventListener('click', onceLogText, {
+        once: true //事件觸發之後即撤除監聽。
+    }));
+ 
+    
+ 
+</script>
+</html>
